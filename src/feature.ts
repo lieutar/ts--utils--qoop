@@ -1,4 +1,5 @@
 import type { Constructor } from "@looper-utils/types";
+import { gensym } from '@looper-utils/string';
 
 export interface IFeature { inject(owner: any): void; }
 
@@ -9,7 +10,7 @@ export abstract class AbstractFeature implements IFeature {
 
 export interface IFeatureClass<TAddedInstance = {}> {
   new (...args: any[]): IFeature;
-  SYM_SLOT: symbol;
+  SYM_SLOT: string;
   applyFeature<TBase extends Constructor>(
     ownerClass: TBase
   ): Constructor<InstanceType<TBase> & TAddedInstance>;
@@ -40,7 +41,7 @@ export function WithFeatures<TBase extends Constructor, TFeatures extends IFeatu
 }
 
 export function Feature(symbolName:string = 'QoopFeature'){
-  const SYM_SLOT = Symbol( symbolName );
+  const SYM_SLOT = ` * ${symbolName || 'qoop SLOT'} ${gensym()} * `;
   return class extends AbstractFeature{
     static SYM_SLOT = SYM_SLOT;
     owner!: any;

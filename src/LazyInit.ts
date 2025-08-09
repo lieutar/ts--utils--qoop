@@ -1,4 +1,5 @@
-const SYM_CACHE = Symbol('cache');
+import {gensym} from '@looper-utils/string';
+const SYM_CACHE = ` * qoop lazy ${gensym()} * `;
 export function LazyInit(){
   return (
     _target: any,

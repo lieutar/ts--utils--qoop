@@ -1,12 +1,13 @@
 import 'reflect-metadata';
 import type { Constructor, PPick } from "@looper-utils/types";
+import { gensym } from '@looper-utils/string';
 
 export type CParams<PropsT, DefaultT> = PPick<PropsT, Exclude<keyof PropsT, keyof DefaultT>>;
 
-const PROPS = Symbol('PROPS');
+const PROPS = ` * qoop PROPS ${gensym()} * `;
 export function Qoop<TBase extends Constructor, PropsT = any>(Base: TBase) {
   return class extends Base {
-    [PROPS]: PropsT;
+    public [PROPS]: PropsT;
     static paramsDefault: Record<string, any> = {};
 
     constructor(...args: any[]) {
