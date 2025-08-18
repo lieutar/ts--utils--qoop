@@ -22,7 +22,6 @@ Qoop.PROPS = PROPS;
 
 export function QoopObject<T=any>(){ return Qoop<typeof Object, T>(Object); }
 
-
 export function Prop(opts: {writeable: boolean} =  {writeable:false}) {
   return function (target: any, propertyKey: string) {
     Object.defineProperty(target, propertyKey, {
