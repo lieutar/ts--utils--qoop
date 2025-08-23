@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sec lang="ja">
+  <title>qoop</title>
+  Quick OOP
+  <sec>
+    <title>Mixins</title>
+    <sec>
+      <title>`Qoop()`</title>
+    </sec>
+    <sec>
+      <title>`WithFeatures(BaseClass, ... Features)`</title>
+    </sec>
+  </sec>
+  <sec>
+    <title>Decolators</title>
+    <sec>
+      <title>`@Prop`</title>
+      ``` typescript
+      @Prop() declare someProp: SomePropType;
+      ```
+    </sec>
+    <sec>
+      <title>`@Setter`</title>
+      ``` typescript
+      @Setter('foo') setFoo(_:FooType){ throw new Error(); }
+      ```
+    </sec>
+    <sec>
+      <title>`@Delegate`</title>
+    </sec>
+    <sec>
+      <title>`@LazyInit`</title>
+    </sec>
+  </sec>
+</sec>
